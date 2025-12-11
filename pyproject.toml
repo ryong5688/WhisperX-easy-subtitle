@@ -1,7 +1,7 @@
 [project]
-name = "n8n-tests"
+name = "WhisperX-easy-subtitle"
 version = "0.1.0"
-description = "Add your description here"
+description = "An easy WhisperX implement mainly for n8n automation workflows."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

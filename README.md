@@ -1,20 +1,12 @@
 # WhisperX-easy-subtitle
 
-A streamlined, n8n-friendly CLI wrapper for [WhisperX](https://github.com/m-bain/whisperX). It provides fast speech-to-text transcription with accurate timestamps and speaker diarization, optimized for automation workflows.
-
-## Features
-
-*   🚀 **Fast Transcription:** Uses Faster-Whisper (large-v3-turbo).
-*   👥 **Speaker Diarization:** Identifies different speakers via Pyannote 3.1.
-*   🧠 **Smart Memory Management:** Automatic VRAM cleanup (configurable).
-*   🔌 **Automation Ready:** Outputs standardized paths for n8n/workflow integration.
-*   💾 **Customizable Storage:** Supports custom model paths via environment variables.
+An easy [WhisperX](https://github.com/m-bain/whisperX) implement mainly for `n8n` automation workflows. It provides fast speech-to-text transcription with accurate timestamps and speaker diarization.
 
 ## Prerequisites
 
 *   `uv`
 *   `FFmpeg` (Required for audio processing)
-*   NVIDIA GPU + CUDA (Highly Recommended)
+*   `CUDA Toolkit 12.8` (I use 12.9 and it works fine)
 
 ## Installation
 
@@ -33,7 +25,7 @@ A streamlined, n8n-friendly CLI wrapper for [WhisperX](https://github.com/m-bain
 
 1.  Create a `.env` file in the root directory:
 
-2.  Add your Hugging Face Token (Required for Diarization):
+2.  Add your HuggingFace Token (Required for Speaker Diarization):
     ```env
     HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
     
@@ -69,14 +61,7 @@ uv run main.py interview.mp3 -D
 | **Diarization** | `-D`, `--diarize`           | Enable speaker identification.                                 |
 | **Memory**      | `-N`, `--no_release_memory` | Keep models in VRAM. Speeds up consecutive runs but risks OOM. |
 
-## Automation (n8n)
-
-The script prints the absolute path of the generated SRT file to `stdout` for easy parsing:
-
-```text
-### OUTPUT_SRT_PATH::/abs/path/to/your/file.srt
-```
-
-## License
-
-MIT License. Based on [WhisperX](https://github.com/m-bain/whisperX).
+## TODO
+- [ ] More configurable args
+- [ ] Add batch support
+- [ ] and more
